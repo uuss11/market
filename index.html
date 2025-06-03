@@ -3,51 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سوق الدارك</title>
+    <title>سوق الدارك-الصفحة الرئيسية</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <div class="owner-info">
+            <p><strong>مالك الموقع:</strong> رضا</p>
+            <p><strong>تليجرام:</strong> @lJJ2l</p>
+        </div>
         <h1>سوق الدارك</h1>
         <nav>
-            <button id="loginBtn">تسجيل الدخول</button>
-            <button id="logoutBtn" style="display:none;">تسجيل الخروج</button>
-            <button id="postProductBtn" style="display:none;">نشر منتج جديد</button>
+            <button id="showLoginFormBtn">تسجيل الدخول</button>
+            <button id="showSignupFormBtn">إنشاء حساب</button>
+            <button id="logoutBtn" style="display: none;">تسجيل الخروج</button>
+            <button id="postProductBtn" style="display: none;">نشر منتج جديد</button>
         </nav>
     </header>
 
-    <main id="productsContainer">
-        <h2>المنتجات المتوفرة</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200x150?text=منتج+1" alt="صورة منتج 1">
-                <h3>اسم المنتج 1</h3>
-                <p>وصف قصير للمنتج الأول. هذا المنتج رائع ومفيد.</p>
-                <button>عرض التفاصيل</button>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200x150?text=منتج+2" alt="صورة منتج 2">
-                <h3>اسم المنتج 2</h3>
-                <p>وصف قصير للمنتج الثاني. جودة عالية وسعر مميز.</p>
-                <button>عرض التفاصيل</button>
-            </div>
-        </div>
-    </main>
+    <main>
+        <section id="authForms">
+            <div id="loginFormSection" class="form-section">
+                <h2>تسجيل الدخول</h2>
+                <form id="loginForm">
+                    <label for="loginUsername">اسم المستخدم:</label>
+                    <input type="text" id="loginUsername" name="username" required>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>تسجيل الدخول</h2>
-            <form id="loginForm">
-                <label for="username">اسم المستخدم:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">كلمة المرور:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">دخول</button>
-                <p id="loginMessage" class="error-message"></p>
-            </form>
-        </div>
-    </div>
+                    <label for="loginPassword">كلمة المرور:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+
+                    <button type="submit">دخول</button>
+                    <p id="loginMessage" class="message"></p>
+                </form>
+            </div>
+
+            <div id="signupFormSection" class="form-section" style="display:none;">
+                <h2>إنشاء حساب جديد</h2>
+                <p class="warning-message">
+                    **ملاحظة هامة:** في هذا النموذج التجريبي، لن يتم حفظ الحسابات بشكل دائم. يتطلب إنشاء حسابات حقيقية واجهة خلفية وقاعدة بيانات.
+                </p>
+                <form id="signupForm">
+                    <label for="signupUsername">اسم المستخدم:</label>
+                    <input type="text" id="signupUsername" name="username" required>
+
+                    <label for="signupPassword">كلمة المرور:</label>
+                    <input type="password" id="signupPassword" name="password" required>
+
+                    <label for="confirmPassword">تأكيد كلمة المرور:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                    <button type="submit">إنشاء حساب</button>
+                    <p id="signupMessage" class="message"></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="productsSection" style="display:none;">
+            <h2>المنتجات المتوفرة</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200x150?text=منتج+1" alt="صورة منتج 1">
+                    <h3>اسم المنتج 1</h3>
+                    <p>وصف قصير للمنتج الأول. هذا المنتج رائع ومفيد.</p>
+                    <button>عرض التفاصيل</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200x150?text=منتج+2" alt="صورة منتج 2">
+                    <h3>اسم المنتج 2</h3>
+                    <p>وصف قصير للمنتج الثاني. جودة عالية وسعر مميز.</p>
+                    <button>عرض التفاصيل</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <div id="postProductModal" class="modal">
         <div class="modal-content">
@@ -58,10 +86,13 @@
                 <input type="text" id="productTitle" name="productTitle" required>
                 <label for="productDescription">الوصف:</label>
                 <textarea id="productDescription" name="productDescription" rows="4" required></textarea>
-                <label for="productImage">صورة المنتج:</label>
+                <label for="productImage">صورة/فيديو المنتج:</label>
                 <input type="file" id="productImage" name="productImage" accept="image/*,video/*">
+                <p class="hint">يمكنك رفع ملف صورة أو فيديو هنا. لتحميل صور وفيديوهات من الإنترنت، تحتاج إلى رابط مباشر.</p>
+                <label for="productExternalLink">أو رابط مباشر لصورة/فيديو من الإنترنت:</label>
+                <input type="url" id="productExternalLink" name="productExternalLink" placeholder="مثال: https://example.com/image.jpg">
                 <button type="submit">نشر المنتج</button>
-                <p id="postProductMessage" class="error-message"></p>
+                <p id="postProductMessage" class="message"></p>
             </form>
         </div>
     </div>
