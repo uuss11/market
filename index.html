@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوق الدارك</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>سوق الدارك</h1>
+        <nav>
+            <button id="loginBtn">تسجيل الدخول</button>
+            <button id="logoutBtn" style="display:none;">تسجيل الخروج</button>
+            <button id="postProductBtn" style="display:none;">نشر منتج جديد</button>
+        </nav>
+    </header>
+
+    <main id="productsContainer">
+        <h2>المنتجات المتوفرة</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200x150?text=منتج+1" alt="صورة منتج 1">
+                <h3>اسم المنتج 1</h3>
+                <p>وصف قصير للمنتج الأول. هذا المنتج رائع ومفيد.</p>
+                <button>عرض التفاصيل</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200x150?text=منتج+2" alt="صورة منتج 2">
+                <h3>اسم المنتج 2</h3>
+                <p>وصف قصير للمنتج الثاني. جودة عالية وسعر مميز.</p>
+                <button>عرض التفاصيل</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>تسجيل الدخول</h2>
+            <form id="loginForm">
+                <label for="username">اسم المستخدم:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">كلمة المرور:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">دخول</button>
+                <p id="loginMessage" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="postProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>نشر منتج جديد</h2>
+            <form id="postProductForm">
+                <label for="productTitle">عنوان المنتج:</label>
+                <input type="text" id="productTitle" name="productTitle" required>
+                <label for="productDescription">الوصف:</label>
+                <textarea id="productDescription" name="productDescription" rows="4" required></textarea>
+                <label for="productImage">صورة المنتج:</label>
+                <input type="file" id="productImage" name="productImage" accept="image/*,video/*">
+                <button type="submit">نشر المنتج</button>
+                <p id="postProductMessage" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 سوق المالك. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
